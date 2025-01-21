@@ -14,8 +14,8 @@
               {% else %}
               {% assign domain = base_path %}
             {% endif %}
-<!--             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li> -->
-                <li class="{{forloop.index}}"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            <span>Index: {{ forloop.index }}</span> <!-- Debugging output -->
           {% endif %}
           {% endfor %}
         </ul>
