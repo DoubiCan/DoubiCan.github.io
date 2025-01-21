@@ -14,8 +14,9 @@
               {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endif %}<!-- 第一个我想留下来作按钮-->
+<!--             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li> -->
+                <li class="{{forloop.index}}"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+          {% endif %}
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
