@@ -73,13 +73,7 @@ $(document).ready(function(){
   });
 
 
-   //sidebar按钮
-   $(document).ready(function(){
-  // 监听按钮点击事件
-  $("#toggle-sidebar").on("click", function() {
-    $("#sidebar").toggleClass("hidden"); // 切换 "hidden" 类
-  });
-});
+   
 
    
 });
