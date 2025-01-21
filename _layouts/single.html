@@ -8,11 +8,11 @@ layout: default
   {% include page__hero.html %}
 {% endif %}
 
-{% if page.url != "/" and site.breadcrumbs %}
+<!-- {% if page.url != "/" and site.breadcrumbs %}
   {% unless paginator %}
     {% include breadcrumbs.html %}
   {% endunless %}
-{% endif %}
+{% endif %} -->
 
 <div id="main" role="main">
 <!--   {% include sidebar.html %} -->
@@ -80,8 +80,8 @@ layout: default
   </article> -->
 
   <!-- {% comment %}--><!-- only show related on a post page when not disabled --><!--{% endcomment %}  -->
-<!--   {% if page.id and page.related and site.related_posts.size > 0 %}
-    <div class="page__related">
+  {% if page.id and page.related and site.related_posts.size > 0 %}
+<!--     <div class="page__related">
       {% if site.data.ui-text[site.locale].related_label %}
         <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
       {% endif %}
