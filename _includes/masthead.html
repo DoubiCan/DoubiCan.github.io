@@ -10,14 +10,12 @@
 <!--           <li class="masthead__menu-item masthead__menu-item--lg"></div id="toggle-sidebar" role="button">{{ site.title }}</div></li> -->
           
           {% for link in site.data.navigation.main %}
-           {% if forloop.index > 1 %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
               {% else %}
               {% assign domain = base_path %}
             {% endif %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endif %}
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
