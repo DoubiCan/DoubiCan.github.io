@@ -26,9 +26,7 @@
   .page__inner-wrap {
     @include full();
 
-     .page__content{
-      @include full();
-    }，
+    .page__content,
     .page__meta,
     .page__share {
       @include full();
@@ -51,6 +49,7 @@
 }
 
 .page__content {
+   @include full();
 
   h2 {
     padding-bottom: 0.5em;
