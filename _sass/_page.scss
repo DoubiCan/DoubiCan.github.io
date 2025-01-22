@@ -28,7 +28,8 @@
 
     .page__content {
       @include full();
-    },
+    }
+     
     .page__meta,
     .page__share {
       @include full();
