@@ -72,11 +72,7 @@ $(document).ready(function(){
     midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
   });
 
-// 这里添加显示与隐藏侧边栏的代码
-  $("#toggle-sidebar").on("click", function() {
-    $("#sidebar").toggleClass("hidden"); // 切换 "hidden" 类
-  });
-   
+
 
    
 });
