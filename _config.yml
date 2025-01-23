@@ -24,9 +24,9 @@ author:
   avatar           : "profile2.png"
   name             : "DoubiCan"
   pronouns         : # example: "she/her"  
-  bio              : #"Joker"
+  bio              : "Joker"
   location         : "Earth"
-  employer         : #"GZHU" #"Red Brick University"
+  employer         : "GZHU" #"Red Brick University"
   uri              : # URL
   email            : "jhHe@e.gzhu.edu.cn" 
 
