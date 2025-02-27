@@ -44,7 +44,50 @@ layout: default
         </header>
       {% endunless %}
       
-      {% if page.private == nil or page.private == 'false' %}
+      {% if page.private == 'true' %}
+        <div class="overlay" id="overlay">
+          <div class="password-form">
+            <h2>请输入查看密码</h2>
+            <input type="password" id="password" placeholder="输入密码">
+            <button onclick="checkPassword()">确认</button>
+            <p class="error-message" id="errorMessage" style="display: none;">密码错误，请重试。</p>
+          </div>
+        </div>
+        <div class="secret-content" id="secretContent" style="display: none;">
+          <section class="page__content" itemprop="text">
+            {{ content }}
+
+            {% if page.citation and page.paperurl and page.slidesurl %}
+              <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a></p>
+            {% elsif page.citation and page.paperurl %}
+              <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a></p>
+            {% elsif page.citation and page.slidesurl %}
+              <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a></p>
+            {% elsif page.citation %}
+              <p style="font-size: smaller">Recommended citation: {{ page.citation }}</p>
+            {% elsif page.slidesurl %}
+              <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a></p>
+            {% endif %}
+
+            {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+          </section>
+        </div>
+
+        <script>
+          function checkPassword() {
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const overlay = document.getElementById('overlay');
+            const secretContent = document.getElementById('secretContent');
+            if (password === '2282') { // 设置密码为 '2282'
+              overlay.style.display = 'none'; // 移除覆盖层
+              secretContent.style.display = 'block'; // 显示私密内容
+            } else {
+              errorMessage.style.display = 'block';
+            }
+          }
+        </script>
+      {% elsif page.private == nil or page.private == 'false' %}
         <section class="page__content" itemprop="text">
           {{ content }}
 
