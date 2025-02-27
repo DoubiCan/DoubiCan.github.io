@@ -1,23 +1,12 @@
 ---
-title: 'Blog Post number t'
-date: 2024-09-14
-permalink: /posts/2024/09/blog-post-5/
+title: 'Event_STMD_Math_V1'
+date: 2025-02-25
+permalink: /posts/2025/02/blog-post-3/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - Math
+  - STMD
+  - Event_based
 ---
-
-This is a sample blog post. Lorem ipsum I can't remember the rest of lorem ipsum and don't have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.
-
-Headings are cool
-======
-
-You can have many headings
-======
-
-Aren't headings cool?
-------
 
 此文仅用于Event_STMD的初步推导，兼具简单与丑陋的特点
 
@@ -26,8 +15,9 @@ Aren't headings cool?
 
 
 
+
 # CH1:空间分辨率和时间分辨率Matters?
-由于小目标的尺寸较小，可以把小目标的运动看作一条空间曲线\\(u(x(t),y(t),t)\\)。如下图所示。而对于收集到的离散数据则以pixel为单位估计实际物体位置\\(i.e.\hat{I}(x(t),y(t),t)\\)
+由于小目标的尺寸较小，可以把小目标的运动看作一条空间曲线$u(x(t),y(t),t)$。如下图所示。而对于收集到的离散数据则以pixel为单位估计实际物体位置i.e.$\hat{I}(x(t),y(t),t)$
 
 <div style="text-align: center;">
   <img src='/images/Event_STMD_MathV1/ResolutionFigure1.png' alt='数据分辨率与小目标运动'>
