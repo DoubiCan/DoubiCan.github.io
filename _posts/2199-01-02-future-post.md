@@ -78,6 +78,10 @@ V2E由于调用git clone 超时，只能自己下下来zip
 [ubuntu不进入休眠状态](https://blog.csdn.net/weixin_44120025/article/details/123184263)
 
 [VMware中Linux虚拟机设置共享文件夹与主机传输文件](https://blog.csdn.net/m0_37871461/article/details/115395589)
+要是共享文件夹看不到可以试试该文件夹终端执行这行代码
+```
+sudo vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
+```
 
 [VMware虚拟机扩容磁盘](https://blog.csdn.net/hktkfly6/article/details/123302335)
 
