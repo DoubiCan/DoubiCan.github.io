@@ -226,3 +226,70 @@ base) doubican@DoubiCan:~/桌面$ history
   110  python v2e.py -i input/output.mp4 --output_width=640 --output_height=480
 
 ```
+
+---
+
+
+
+[新问题:如果使用`--dvs_text DVS_TEXT`参数会出现:`numpy have no attribute 'float`的错误所以需要改变包的版本](https://blog.csdn.net/qq_45934285/article/details/131120167)
+```shell
+pip install numpy==1.22
+
+pip install numba==0.59.0
+
+```
+
+后续的补充的历史命令记录
+```shell
+109  python v2e.py -i input/output.mp4
+  110  python v2e.py -i input/output.mp4 --output_width=640 --output_height=480
+  111  history
+  112  vmhgfs-fuse .host:/ /mnt/hgfs 
+  113  python v2e.py -i input/Translating_boxes.mp4 --output_width=640 --output_height=480 --output_folder=output/Translating_6boxes --dvs_text DVS_TEXT
+  114  HISTORY
+  115  history
+  116  conda activate v2e
+  117  python v2e.py -i input/Translating_boxes.mp4 --output_width=640 --output_height=480 --output_folder=output/Translating_6boxes --dvs_text DVS_TEXT
+  118  python v2e.py -i input/Translating_boxes.mp4 --output_width=640 --output_height=480 --output_folder=output/Translating_6boxes --overwrite --dvs_text=DVS_TEXT
+  119  python v2e.py -i input/output.mp4 --overwrite --output_width=640 --output_height=480
+  120  python v2e.py -i input/output.mp4 --overwrite --output_width=640 --output_height=480 --dvs_text DVS_TEXT
+  121  pip list
+  122  pip install numpy=1.21
+  123  pip install numpy==1.21
+  124  pip uninstall numpy
+  125  pip install numpy==1.21
+  126  pip install numpy==1.22
+  127  pip install numpy==1.24
+  128  python v2e.py -i input/output.mp4 --overwrite --output_width=640 --output_height=480
+  129  python v2e.py -i input/output.mp4 --overwrite --output_width=640 --output_height=480 --dvs_text DVS_TEXT
+  130  pip install numpy==1.21
+  131  pip install numpy==1.23
+  132  python v2e.py -i input/output.mp4 --overwrite --output_width=640 --output_height=480 --dvs_text DVS_TEXT
+  133  pip list
+  134  pip install numba==0.49.1
+  135  pip install numba==0.5
+  136  pip install numba==0.49
+  137  pip list
+  138  pip install numba==0.49.1
+  139  pip install numpy==1.22
+  140  pip install numba==0.49.1
+  141  pip list
+  142  python v2e.py -i input/output.mp4 --overwrite --output_width=640 --output_height=480 --dvs_text DVS_TEXT
+  143  pip install numba==0.49.1
+  144  sudo apt-get install llvm-8
+  145  pip install numba==0.49.1 llvmlite==0.30.0
+  146  pip install numba==0.49.1
+  147  sudo apt-get install llvm-8
+  148  sudo apt install llvm
+  149  pip install numba==0.49.1
+  150  sudo apt update
+  151  sudo apt install llvm-10-dev  
+  152  pip install numba==0.49.1
+  153  pip install llvmlite==0.34.0 --no-cache-dir
+  154  pip install llvmlite
+  155  pip install numba==0.49.1
+  156  pip install numba==0.51.0
+  157  pip install numba==0.59.0
+  158  python v2e.py -i input/output.mp4 --overwrite --output_width=640 --output_height=480 --dvs_text DVS_TEXT
+
+```
