@@ -107,6 +107,7 @@ python v2e.py -i input/output.mp4 --output_width=640 --output_height=480
 ```
 还有其他问题就看下面当时的的完整记录
 
+记得每次重启机子要`conda activate v2e`
 
 # 当时完整的部署步骤
 
