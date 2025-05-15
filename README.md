@@ -108,8 +108,6 @@ Unfortunately, one logistical issue with a template theme like Academic Pages th
 
 ---
 
-https://github.com/user-attachments/assets/82185a57-61cc-4a12-9f87-a70fe5677fef
-
 
 <div align="center">
     
