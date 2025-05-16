@@ -1,3 +1,28 @@
+<!-- 添加在masthead.html的开头 -->
+<style>
+.masthead {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95); /* 半透明白色背景 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.masthead--hidden {
+  transform: translateY(-100%); /* 完全隐藏导航栏 */
+}
+
+/* 移动端优化 */
+@media screen and (max-width: 1024px) {
+  .masthead {
+    position: static; /* 手机端保持原有位置 */
+  }
+}
+</style>
+
+
 {% include base_path %}
 
 <div class="masthead">
@@ -23,3 +48,27 @@
     </div>
   </div>
 </div>
+
+
+<!-- 添加在masthead.html的末尾 -->
+<script>
+(function() {
+  let lastScroll = 0;
+  const header = document.querySelector('.masthead');
+  const scrollThreshold = 100; // 滚动超过100px才隐藏
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+      // 向下滚动超过阈值时隐藏
+      header.classList.add('masthead--hidden');
+    } else if (currentScroll < lastScroll) {
+      // 向上滚动时显示
+      header.classList.remove('masthead--hidden');
+    }
+
+    lastScroll = currentScroll;
+  });
+})();
+</script>
