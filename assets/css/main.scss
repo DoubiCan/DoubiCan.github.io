@@ -26,7 +26,7 @@
 @import "masthead";
 @import "navigation";
 @import "footer";
-@import "syntax";//不再使用rouge高亮代码块
+// @import "syntax";//不再使用rouge高亮代码块
 
 @import "forms";
 
@@ -40,6 +40,6 @@
 @import "vendor/magnific-popup/magnific-popup";
 
 // 新增 Prism.js 样式导入
-@import "prism";    
+// @import "prism";    
 
 @import "print";
