@@ -1,12 +1,13 @@
 /* ==================== Prism.js 代码高亮样式 ==================== */
+/* 专为 HTML 代码块设计，完全禁用 Markdown 代码块 */
 
-// 基础代码块样式 - 提高优先级覆盖 Rouge
+// 基础代码块样式 - 专为 HTML 代码块设计
 pre[class*="language-"] {
   border-radius: 8px;
   margin: 1.5em 0;
   overflow-x: auto;
   position: relative;
-  background: #2d2d2d !important; // 使用 !important 覆盖 Rouge
+  background: #2d2d2d !important;
   border: 1px solid #444 !important;
   border-left: 4px solid #007acc !important;
   padding: 1.5em 1em !important;
@@ -14,7 +15,7 @@ pre[class*="language-"] {
   font-size: 14px;
   line-height: 1.5;
   
-  // 强制显示，隐藏 Rouge 生成的代码块
+  // 确保显示
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -53,13 +54,27 @@ code[class*="language-"] {
   background: transparent !important;
   color: inherit !important;
   padding: 0 !important;
+  display: block !important;
+  white-space: pre !important;
 }
 
-// 隐藏 Rouge 生成的代码块 - 强制隐藏
+// ========== 彻底禁用所有 Rouge 生成的代码块 ==========
+// 隐藏所有可能由 Markdown 代码块生成的 Rouge 元素
+div.highlighter-rouge,
+figure.highlight,
 .highlight,
-div.highlight,
+[class*="highlighter-rouge"],
 .language-plaintext.highlighter-rouge,
-.language-python.highlighter-rouge {
+.language-python.highlighter-rouge,
+.language-javascript.highlighter-rouge,
+.language-html.highlighter-rouge,
+.language-css.highlighter-rouge,
+.language-bash.highlighter-rouge,
+.language-shell.highlighter-rouge,
+.language-json.highlighter-rouge,
+.language-yaml.highlighter-rouge,
+.language-markdown.highlighter-rouge,
+.language-text.highlighter-rouge {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
@@ -67,9 +82,21 @@ div.highlight,
   overflow: hidden !important;
   position: absolute !important;
   opacity: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  z-index: -1000 !important;
 }
 
-// 工具栏和复制按钮样式
+// 隐藏所有 Rouge 的 token 类
+[class*="highlight"] [class] {
+  all: unset !important;
+  color: inherit !important;
+  background: transparent !important;
+  font: inherit !important;
+}
+
+// ========== 工具栏和复制按钮样式 ==========
 div.code-toolbar {
   position: relative;
   margin: 1.5em 0;
@@ -113,7 +140,7 @@ div.code-toolbar {
   }
 }
 
-// 行号样式
+// ========== 行号样式 ==========
 pre.line-numbers {
   position: relative;
   padding-left: 3.8em !important;
@@ -154,7 +181,7 @@ pre.line-numbers {
   }
 }
 
-// 特定语言的高亮优化
+// ========== 语言特定的高亮优化 ==========
 .language-python {
   .token.keyword {
     color: #569cd6 !important;
@@ -176,6 +203,10 @@ pre.line-numbers {
   .token.number {
     color: #b5cea8 !important;
   }
+  
+  .token.class-name {
+    color: #4ec9b0 !important;
+  }
 }
 
 .language-javascript {
@@ -190,6 +221,10 @@ pre.line-numbers {
   .token.string {
     color: #ce9178 !important;
   }
+  
+  .token.regex {
+    color: #d16969 !important;
+  }
 }
 
 .language-bash, .language-shell {
@@ -202,7 +237,31 @@ pre.line-numbers {
   }
 }
 
-// 通用 token 样式
+.language-html {
+  .token.tag {
+    color: #569cd6 !important;
+  }
+  
+  .token.attr-name {
+    color: #9cdcfe !important;
+  }
+  
+  .token.attr-value {
+    color: #ce9178 !important;
+  }
+}
+
+.language-css {
+  .token.property {
+    color: #9cdcfe !important;
+  }
+  
+  .token.value {
+    color: #ce9178 !important;
+  }
+}
+
+// ========== 通用 token 样式 ==========
 .token.comment {
   color: #6a9955 !important;
 }
@@ -256,7 +315,7 @@ pre.line-numbers {
   cursor: help !important;
 }
 
-// 响应式设计
+// ========== 响应式设计 ==========
 @media screen and (max-width: 768px) {
   pre[class*="language-"] {
     margin: 1em 0 !important;
@@ -277,15 +336,17 @@ pre.line-numbers {
   
   .line-numbers .line-numbers-rows {
     font-size: 13px !important;
+    top: 1em !important;
   }
 }
 
-// 打印样式
+// ========== 打印样式 ==========
 @media print {
   pre[class*="language-"] {
     border: 1px solid #999 !important;
     background: white !important;
     color: black !important;
+    page-break-inside: avoid;
   }
   
   .token.comment {
@@ -298,7 +359,7 @@ pre.line-numbers {
   }
 }
 
-// 深色/浅色主题支持
+// ========== 深色/浅色主题支持 ==========
 @media (prefers-color-scheme: light) {
   pre[class*="language-"] {
     background: #f6f8fa !important;
@@ -307,11 +368,29 @@ pre.line-numbers {
   }
 }
 
-// 高亮特定行（如果需要）
+// ========== 高亮特定行 ==========
 .highlight-line {
   background-color: #2a2a2a;
   display: block;
   margin: 0 -1em;
   padding: 0 1em;
   border-left: 3px solid #007acc;
+}
+
+// ========== 代码块标题样式 ==========
+.code-header {
+  background: #3c3c3c;
+  color: #ccc;
+  padding: 0.5em 1em;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid #444;
+  border-bottom: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  
+  + pre[class*="language-"] {
+    border-radius: 0 0 8px 8px;
+    margin-top: 0;
+  }
 }
