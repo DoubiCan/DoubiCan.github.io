@@ -246,6 +246,7 @@ defaults:
       comments: true
       share: false
       related: true
+      highlighter: none
   # _pages
   - scope:
       path: ""
