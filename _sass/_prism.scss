@@ -1,17 +1,24 @@
-// _sass/_prism.scss
-
 /* ==================== Prism.js 代码高亮样式 ==================== */
 
-// 基础代码块样式
+// 基础代码块样式 - 提高优先级覆盖 Rouge
 pre[class*="language-"] {
   border-radius: 8px;
   margin: 1.5em 0;
   overflow-x: auto;
   position: relative;
-  background: #2d2d2d;
-  border-left: 4px solid #007acc;
-  padding: 1.5em 1em;
+  background: #2d2d2d !important; // 使用 !important 覆盖 Rouge
+  border: 1px solid #444 !important;
+  border-left: 4px solid #007acc !important;
+  padding: 1.5em 1em !important;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
   
+  // 强制显示，隐藏 Rouge 生成的代码块
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
   // 横向滚动条样式
   &::-webkit-scrollbar {
     height: 8px;
@@ -25,46 +32,81 @@ pre[class*="language-"] {
   &::-webkit-scrollbar-thumb {
     background: #555;
     border-radius: 4px;
+    transition: background 0.3s ease;
   }
 
   &::-webkit-scrollbar-thumb:hover {
     background: #777;
   }
+
+  // Firefox 滚动条
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
 }
 
 // 内联代码样式
 code[class*="language-"] {
-  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', monospace;
-  font-size: 0.9em;
-  line-height: 1.5;
-  text-shadow: none;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+}
+
+// 隐藏 Rouge 生成的代码块 - 强制隐藏
+.highlight,
+div.highlight,
+.language-plaintext.highlighter-rouge,
+.language-python.highlighter-rouge {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  opacity: 0 !important;
 }
 
 // 工具栏和复制按钮样式
 div.code-toolbar {
   position: relative;
+  margin: 1.5em 0;
   
   > .toolbar {
-    opacity: 1;
-    top: 0.8em;
-    right: 0.8em;
-    position: absolute;
+    opacity: 1 !important;
+    top: 0.5em !important;
+    right: 0.5em !important;
+    position: absolute !important;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+      opacity: 1 !important;
+    }
     
     > .toolbar-item {
       > button {
-        background: #007acc;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 6px 12px;
-        font-size: 0.8em;
-        cursor: pointer;
-        transition: all 0.2s ease;
+        background: #007acc !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        padding: 6px 12px !important;
+        font-size: 12px !important;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         
         &:hover {
-          background: #005a9e;
-          transform: translateY(-1px);
+          background: #005a9e !important;
+          transform: translateY(-1px) !important;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        &:active {
+          transform: translateY(0) !important;
         }
       }
     }
@@ -74,7 +116,7 @@ div.code-toolbar {
 // 行号样式
 pre.line-numbers {
   position: relative;
-  padding-left: 3.8em;
+  padding-left: 3.8em !important;
   counter-reset: linenumber;
   
   > code {
@@ -85,86 +127,191 @@ pre.line-numbers {
 .line-numbers .line-numbers-rows {
   position: absolute;
   pointer-events: none;
-  top: 0;
-  font-size: 100%;
-  left: -3.8em;
+  top: 1.5em !important;
+  font-size: 14px;
+  left: 0;
   width: 3em;
   letter-spacing: -1px;
   border-right: 1px solid #555;
   user-select: none;
+  background: #252525;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
   
   > span {
     pointer-events: none;
     display: block;
     counter-increment: linenumber;
+    padding-right: 0.8em;
     
     &:before {
       content: counter(linenumber);
       color: #999;
       display: block;
-      padding-right: 0.8em;
       text-align: right;
+      padding-right: 0.8em;
     }
   }
 }
 
 // 特定语言的高亮优化
 .language-python {
-  .token.function {
-    color: #dcdcaa;
+  .token.keyword {
+    color: #569cd6 !important;
   }
   
-  .token.keyword {
-    color: #569cd6;
+  .token.function {
+    color: #dcdcaa !important;
   }
   
   .token.string {
-    color: #ce9178;
+    color: #ce9178 !important;
+  }
+  
+  .token.comment {
+    color: #6a9955 !important;
+    font-style: italic;
+  }
+  
+  .token.number {
+    color: #b5cea8 !important;
   }
 }
 
 .language-javascript {
-  .token.function {
-    color: #dcdcaa;
+  .token.keyword {
+    color: #569cd6 !important;
   }
   
-  .token.keyword {
-    color: #569cd6;
+  .token.function {
+    color: #dcdcaa !important;
+  }
+  
+  .token.string {
+    color: #ce9178 !important;
   }
 }
 
-.language-bash {
+.language-bash, .language-shell {
   .token.function {
-    color: #dcdcaa;
+    color: #dcdcaa !important;
   }
+  
+  .token.operator {
+    color: #d4d4d4 !important;
+  }
+}
+
+// 通用 token 样式
+.token.comment {
+  color: #6a9955 !important;
+}
+
+.token.prolog, .token.doctype, .token.cdata {
+  color: #808080 !important;
+}
+
+.token.punctuation {
+  color: #d4d4d4 !important;
+}
+
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol {
+  color: #b5cea8 !important;
+}
+
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin {
+  color: #ce9178 !important;
+}
+
+.token.operator, .token.entity, .token.url, .language-css .token.string {
+  color: #d4d4d4 !important;
+  background: transparent !important;
+}
+
+.token.atrule, .token.attr-value, .token.keyword {
+  color: #569cd6 !important;
+}
+
+.token.function {
+  color: #dcdcaa !important;
+}
+
+.token.regex, .token.important, .token.variable {
+  color: #d16969 !important;
+}
+
+.token.important {
+  font-weight: bold !important;
+}
+
+.token.bold {
+  font-weight: bold !important;
+}
+
+.token.italic {
+  font-style: italic !important;
+}
+
+.token.entity {
+  cursor: help !important;
 }
 
 // 响应式设计
 @media screen and (max-width: 768px) {
   pre[class*="language-"] {
-    margin: 1em 0;
-    padding: 1em 0.8em;
-    border-radius: 6px;
+    margin: 1em 0 !important;
+    padding: 1em 0.8em !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
   }
   
   div.code-toolbar > .toolbar {
-    top: 0.5em;
-    right: 0.5em;
+    top: 0.3em !important;
+    right: 0.3em !important;
     
     > .toolbar-item > button {
-      padding: 4px 8px;
-      font-size: 0.75em;
+      padding: 4px 8px !important;
+      font-size: 11px !important;
     }
+  }
+  
+  .line-numbers .line-numbers-rows {
+    font-size: 13px !important;
   }
 }
 
-// 确保与现有语法高亮的兼容性
-// 隐藏默认的语法高亮，使用 Prism.js
-.highlight {
-  display: none;
+// 打印样式
+@media print {
+  pre[class*="language-"] {
+    border: 1px solid #999 !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  .token.comment {
+    color: #008000 !important;
+  }
+  
+  .token.keyword {
+    color: #0000ff !important;
+    font-weight: bold !important;
+  }
 }
 
-// 显示 Prism.js 处理的代码块
-pre[class*="language-"] {
-  display: block !important;
+// 深色/浅色主题支持
+@media (prefers-color-scheme: light) {
+  pre[class*="language-"] {
+    background: #f6f8fa !important;
+    border-color: #e1e4e8 !important;
+    color: #24292e !important;
+  }
+}
+
+// 高亮特定行（如果需要）
+.highlight-line {
+  background-color: #2a2a2a;
+  display: block;
+  margin: 0 -1em;
+  padding: 0 1em;
+  border-left: 3px solid #007acc;
 }

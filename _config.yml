@@ -208,7 +208,7 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
-  syntax_highlighter: null  # 保持这行
+
 
 # Mermaid diagram settings
 mermaid:
@@ -246,7 +246,7 @@ defaults:
       comments: true
       share: false
       related: true
-      highlighter: none
+
   # _pages
   - scope:
       path: ""
