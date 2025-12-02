@@ -21,7 +21,20 @@
 <meta http-equiv="cleartype" content="on">
 
 
-<!-- 新增加的mermaid支持 -->
+<!-- ==================== 新增：Prism.js 代码高亮 ==================== -->
+<!-- Prism.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+<!-- Prism.js JS -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+<!-- ==================== 新增：mermaid支持 ==================== -->
 <!-- Mermaid JS -->
 {% if site.mermaid and site.mermaid.enable %}
 <script src="{% if site.mermaid.cdn %}{{ site.mermaid.cdn }}{% else %}https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js{% endif %}"></script>
