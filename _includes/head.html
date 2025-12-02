@@ -21,31 +21,18 @@
 <meta http-equiv="cleartype" content="on">
 
 
-<!-- ==================== Prism.js 代码高亮 ==================== -->
-<!-- Prism.js 核心样式 -->
-<link rel="stylesheet" href="链接3">
-<link rel="stylesheet" href="链接4">
-<link rel="stylesheet" href="链接5">
+<!-- ==================== 新增：Prism.js 代码高亮 ==================== -->
+<!-- Prism.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
 
-<!-- 可选插件样式 -->
-<link rel="stylesheet" href="prism-command-line.css">
-<link rel="stylesheet" href="prism-line-highlight.css">
-<link rel="stylesheet" href="prism-diff-highlight.css">
-
-<!-- Prism.js 核心脚本 -->
-<script src="链接6"></script>
-<script src="链接7"></script>
-<script src="链接8"></script>
-
-<!-- 核心功能插件 -->
-<script src="链接1"></script>
-<script src="链接2"></script>
-
-<!-- 增强功能插件 -->
-<script src="prism-command-line.js"></script>
-<script src="prism-line-highlight.js"></script>
-<script src="prism-diff-highlight.js"></script>
-<script src="prism-match-braces.js"></script>
+<!-- Prism.js JS -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 
 <script>
 // Prism.js 配置
@@ -61,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-
 <!-- ==================== 新增：mermaid支持 ==================== -->
 <!-- Mermaid JS -->
 {% if site.mermaid and site.mermaid.enable %}
