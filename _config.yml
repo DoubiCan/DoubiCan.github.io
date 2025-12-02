@@ -210,10 +210,10 @@ kramdown:
   enable_coderay: false
 
 # Mermaid diagram settings
-# mermaid:
-#   enable: true
-#   version: "9.4.3"
-#   cdn: "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
+mermaid:
+  enable: true
+  version: "9.4.3"
+  cdn: "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
 
 
 # These settings control the types of collections used by the template
