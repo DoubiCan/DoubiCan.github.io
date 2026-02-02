@@ -1,0 +1,60 @@
+<!-- _includes/video_comparison.html -->
+{% assign left_video = include.left_video %}
+{% assign right_video = include.right_video %}
+{% assign left_label = include.left_label | default: "Before" %}
+{% assign right_label = include.right_label | default: "After" %}
+{% assign height = include.height | default: 400 %}
+
+<div class="video-comparison-container" style="position: relative; width: 100%; height: {{ height }}px; margin: 20px 0;">
+  <div class="video-wrapper" style="position: absolute; top: 0; width: 50%; height: 100%; overflow: hidden;">
+    <video width="100%" height="100%" muted loop playsinline>
+      <source src="{{ left_video }}" type="video/mp4">
+      您的浏览器不支持 video 标签。
+    </video>
+    <div class="video-label" style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 3px;">
+      {{ left_label }}
+    </div>
+  </div>
+  
+  <div class="video-wrapper" style="position: absolute; top: 0; width: 100%; height: 100%; overflow: hidden; clip-path: inset(0 0 0 50%);">
+    <video width="100%" height="100%" muted loop playsinline>
+      <source src="{{ right_video }}" type="video/mp4">
+      您的浏览器不支持 video 标签。
+    </video>
+    <div class="video-label" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 3px;">
+      {{ right_label }}
+    </div>
+  </div>
+  
+  <div class="slider" 
+       style="position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; cursor: ew-resize; transform: translateX(-50%);"
+       onmousedown="startDrag(event, this)">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.7); color: white; padding: 5px; border-radius: 50%;">
+      ↔
+    </div>
+  </div>
+</div>
+
+<script>
+function startDrag(e, slider) {
+  e.preventDefault();
+  const container = slider.parentElement;
+  const leftVideo = container.querySelector('.video-wrapper:first-child');
+  
+  function drag(e) {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    leftVideo.style.width = `${percentage}%`;
+    slider.style.left = `${percentage}%`;
+  }
+  
+  function stopDrag() {
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('mouseup', stopDrag);
+  }
+  
+  document.addEventListener('mousemove', drag);
+  document.addEventListener('mouseup', stopDrag);
+}
+</script>
